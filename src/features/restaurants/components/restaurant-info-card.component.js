@@ -30,7 +30,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   return (
     <RestaurantCard elevation={5}>
-      <Card.Cover source={{ uri: photos[0] }} />
+      <RestaurantCardCover source={{ uri: photos[0] }} />
       <Title>{name}</Title>
     </RestaurantCard>
   );

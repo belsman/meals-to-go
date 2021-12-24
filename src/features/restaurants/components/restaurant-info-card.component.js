@@ -1,6 +1,19 @@
 import React from "react";
 import { Card } from "react-native-paper";
-import styled from "styled-components/native";
+import styled from "styled-components";
+
+const RestaurantCard = styled(Card)`
+  background-color: white;
+`;
+
+const RestaurantCardCover = styled(Card.Cover)`
+  background-color: white;
+  padding: 8px;
+`;
+
+const Title = styled.Text`
+  padding-top: 8px;
+`;
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -14,19 +27,6 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
     rating = 4,
     isClosedTemporarily,
   } = restaurant;
-
-  const RestaurantCard = styled(Card)`
-    background-color: white;
-  `;
-
-  const RestaurantCardCover = styled(Card.Cover)`
-    background-color: white;
-    padding: 8px;
-  `;
-
-  const Title = styled.Text`
-    padding-top: 8px;
-  `;
 
   return (
     <RestaurantCard elevation={5}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text } from "react-native";
+import { Image, Text, View } from "react-native";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 
@@ -20,17 +20,15 @@ const Info = styled.View`
   padding: ${(props) => props.theme.space[2]};
 `;
 
-const Row = styled.View`
+const Section = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
 `;
 
-const RowSection = styled.View`
+const SectionEnd = styled.View`
+  flex: 1;
   flex-direction: row;
-  align-items: center;
-  border-color: black;
-  border-width: 1px;
+  justify-content: flex-end;
 `;
 
 const Title = styled.Text`
@@ -70,22 +68,24 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
       <RestaurantCardCover source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>
-        <Row>
+        <Section>
           <Rating>
-            {ratingArray.map(() => (
-              <SvgXml xml={star} width={20} height={20} />
+            {ratingArray.map((_, index) => (
+              <SvgXml key={index} xml={star} width={20} height={20} />
             ))}
           </Rating>
-          <RowSection>
+          <SectionEnd>
             {isClosedTemporarily && (
               <Text variant="label" style={{ color: "red" }}>
                 CLOSED TEMPORARILY
               </Text>
             )}
+            <View style={{ paddingLeft: 16 }} />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            <View style={{ paddingLeft: 16 }} />
             <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
-          </RowSection>
-        </Row>
+          </SectionEnd>
+        </Section>
         <Address>{address}</Address>
       </Info>
     </RestaurantCard>

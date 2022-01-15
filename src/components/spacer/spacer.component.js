@@ -10,7 +10,7 @@ const sizeVariant = {
 const positionVariant = {
   top: "marginTop",
   right: "marginRight",
-  botton: "marginBottom",
+  bottom: "marginBottom",
   left: "marginLeft",
 };
 

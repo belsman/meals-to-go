@@ -16,7 +16,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { theme } from "./src/infrastructure/theme";
 
-import { restaurantsRequest } from "./src/services/restaurants/restaurants.service";
 import { Text, View } from "react-native";
 
 export default function App() {

@@ -11,7 +11,14 @@ export function RestaurantsContextProvider({ children }) {
   const [restaurants, setRestaurants] = useState([]);
   const [error, setError] = useState(null);
 
+  // TODO:
+  // Use the <location context provider> to get the current location!
+  // From the location context! Perform a search operation with a call to the retrieve
+  // the restaurants based on the current location
+
   useEffect(() => {
+    // Set current location from the Parent <Location Context>
+    // use the location to retreive the value!
     retrieveRestaurants();
   }, []);
 

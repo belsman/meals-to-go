@@ -1,8 +1,9 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import {
   restaurantsRequest,
   restaurantsTransform,
 } from "./restaurants.service";
+import { LocationContext } from "../../services/location/location.context";
 
 export const RestaurantsContext = createContext();
 
@@ -11,20 +12,20 @@ export function RestaurantsContextProvider({ children }) {
   const [restaurants, setRestaurants] = useState([]);
   const [error, setError] = useState(null);
 
-  // TODO:
-  // Use the <location context provider> to get the current location!
-  // From the location context! Perform a search operation with a call to the retrieve
-  // the restaurants based on the current location
+  const locationContext = useContext(LocationContext);
+
+  console.log("locationContext");
+  console.log(locationContext);
+  console.log("---------------");
 
   useEffect(() => {
-    // Set current location from the Parent <Location Context>
-    // use the location to retreive the value!
-    retrieveRestaurants();
-  }, []);
+    retrieveRestaurants(locationContext);
+  }, [locationContext]);
 
-  const retrieveRestaurants = () => {
+  const retrieveRestaurants = ({ location }) => {
+    setRestaurants([]);
     setIsLoading(true);
-    restaurantsRequest()
+    restaurantsRequest(`${location.lat},${location.lng}`)
       .then(restaurantsTransform)
       .then((results) => {
         setIsLoading(false);

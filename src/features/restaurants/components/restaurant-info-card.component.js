@@ -19,11 +19,9 @@ import open from "../../../../assets/open";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
-    name = "Chicken republic",
-    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
-    photos = [
-      "https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg",
-    ],
+    name,
+    icon,
+    photos,
     address,
     isOpenNow = true,
     rating = 4,

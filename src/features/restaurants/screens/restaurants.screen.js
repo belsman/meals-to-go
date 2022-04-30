@@ -28,7 +28,7 @@ const RestaurantList = styled(FlatList).attrs({
 
 export const RestaurantsScreen = () => {
   const restaurantsContext = useContext(RestaurantsContext);
-  const { restaurants, isLoading, error } = restaurantsContext;
+  const { restaurants, isLoading } = restaurantsContext;
 
   return (
     <SafeArea>
@@ -49,7 +49,7 @@ export const RestaurantsScreen = () => {
               <RestaurantInfoCard restaurant={item} />
             </Spacer>
           )}
-          keyExtractor={(item) => item.key}
+          keyExtractor={(item) => item.name}
         />
       )}
     </SafeArea>

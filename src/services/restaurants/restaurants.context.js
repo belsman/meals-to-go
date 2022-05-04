@@ -14,10 +14,6 @@ export function RestaurantsContextProvider({ children }) {
 
   const locationContext = useContext(LocationContext);
 
-  console.log("locationContext");
-  console.log(locationContext);
-  console.log("---------------");
-
   useEffect(() => {
     retrieveRestaurants(locationContext);
   }, [locationContext]);

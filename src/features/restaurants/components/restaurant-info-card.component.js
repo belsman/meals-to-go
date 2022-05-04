@@ -24,7 +24,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     photos,
     address,
     isOpenNow,
-    rating,
+    rating = 4,
     isClosedTemporarily,
     placeId,
   } = restaurant;
